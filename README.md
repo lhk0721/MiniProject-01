@@ -76,144 +76,150 @@
 
 ---
 
-# 작업 로그 (2025-12-10)
+# 작업 로그 
+<details>
+<summary>(2025-12-10)<summary>
 
-## HTML 구조 설계 및 시멘틱 마크업 개선
+    ## HTML 구조 설계 및 시멘틱 마크업 개선
 
-* `header / main / footer` 기본 레이아웃 구성.
-* Hero, Input, Output 세 영역을 시안 기준으로 `section`으로 분리.
-* Hero 섹션은 `hero__title`, `hero__catchphrase`, `hero__description` 세 개의 요소로 구성.
-* 페이지 내 시각적 타이틀 이미지를 보완하기 위해 `h1.visually-hidden` 추가(SEO 및 접근성 고려).
+    * `header / main / footer` 기본 레이아웃 구성.
+    * Hero, Input, Output 세 영역을 시안 기준으로 `section`으로 분리.
+    * Hero 섹션은 `hero__title`, `hero__catchphrase`, `hero__description` 세 개의 요소로 구성.
+    * 페이지 내 시각적 타이틀 이미지를 보완하기 위해 `h1.visually-hidden` 추가(SEO 및 접근성 고려).
 
-### 주요 결정 이슈
+    ### 주요 결정 이슈
 
-* h1을 어디 둘지 고민 → 시각적으로 감추고 main 최상단에 두는 방식으로 해결.
-* `<article>`, `<figure>` 사용 여부 검토 → Hero 영역에서는 과한 시멘틱 요소라 판단하여 `div` 유지.
-* Hero 내부 텍스트 계층 구조를 BEM 기반으로 재정리.
+    * h1을 어디 둘지 고민 → 시각적으로 감추고 main 최상단에 두는 방식으로 해결.
+    * `<article>`, `<figure>` 사용 여부 검토 → Hero 영역에서는 과한 시멘틱 요소라 판단하여 `div` 유지.
+    * Hero 내부 텍스트 계층 구조를 BEM 기반으로 재정리.
 
----
+    ---
 
-## BEM 네이밍 규칙 정비
+    ## BEM 네이밍 규칙 정비
 
-### 이슈
+    ### 이슈
 
-여러 Element를 어떻게 네이밍할지, `__`, `--`, Element depth 문제 등 혼란이 있었음.
+    여러 Element를 어떻게 네이밍할지, `__`, `--`, Element depth 문제 등 혼란이 있었음.
 
-### 해결 및 결정 기준
+    ### 해결 및 결정 기준
 
-* BEM은 `Block__Element--Modifier` 구조를 유지해야 하며 Element 중첩(`Block__Element__Element`)은 비권장.
-* Input 영역 초기 네이밍(`input__enter__goal`) 구조가 BEM 규칙 위반 → `input__goal-row`, `input__time-row` 형태로 단일 depth Element로 수정.
-* Output 영역 역시 `wrap`, `row` 등 혼재되던 네이밍을 `output__goal-text`, `output__goal-value` 등 얕은 구조로 통일.
+    * BEM은 `Block__Element--Modifier` 구조를 유지해야 하며 Element 중첩(`Block__Element__Element`)은 비권장.
+    * Input 영역 초기 네이밍(`input__enter__goal`) 구조가 BEM 규칙 위반 → `input__goal-row`, `input__time-row` 형태로 단일 depth Element로 수정.
+    * Output 영역 역시 `wrap`, `row` 등 혼재되던 네이밍을 `output__goal-text`, `output__goal-value` 등 얕은 구조로 통일.
 
----
+    ---
 
-## Input 영역 구조 설계
+    ## Input 영역 구조 설계
 
-### 주요 결정
+    ### 주요 결정
 
-* 입력 문장 “나는 ( ) 전문가가 될 것이다”, “그래서 하루에 ( ) 시간” 문장을 `<label>` 내부에서 구성.
-* `<label for>`와 `id` 사용 여부 고민 → input을 label 내부에 포함시키는 방식으로 결정하여 `for / id` 불필요.
-* `type="number"` 사용 시 브라우저 기본 스핀 버튼 등장 → 제거 방법을 CSS에서 처리하는 방향으로 결정.
+    * 입력 문장 “나는 ( ) 전문가가 될 것이다”, “그래서 하루에 ( ) 시간” 문장을 `<label>` 내부에서 구성.
+    * `<label for>`와 `id` 사용 여부 고민 → input을 label 내부에 포함시키는 방식으로 결정하여 `for / id` 불필요.
+    * `type="number"` 사용 시 브라우저 기본 스핀 버튼 등장 → 제거 방법을 CSS에서 처리하는 방향으로 결정.
 
-### 최종 구조
+    ### 최종 구조
 
-```
-<div class="input__enter">
-    <div class="input__goal-row">...</div>
-    <div class="input__time-row">...</div>
-</div>
-```
-
----
-
-## Output 영역 구조 설계
-
-### 이슈
-
-Output도 label을 사용해야 하나? → NO. label은 input 설명용.
-결과 출력은 `p` + `span` 조합이 시멘틱하게 맞음.
-
-### 결정
-
-* 결과 문장 구조를 다음과 같이 명확하게 설계:
-
-  * `output__goal-text`
-  * `output__goal-value`
-  * `output__days-text`
-  * `output__days-value`
-
-### 버튼 그룹
-
-* "훈련하러 가기", "공유하기" 두 버튼을 하나의 action group으로 묶음.
-* 그룹 네이밍: `output__actions`
-* 개별 버튼: `output__action-go`, `output__action-share` 로 확정.
-
----
-
-## 버튼 + 이미지 배치 이슈
-
-### 고민
-
-버튼 옆의 click 이미지가 button 안에 있어야 하나?
-→ 시안 기준으로 버튼 *바깥에* 위치하는 것이 맞으므로 구조 유지.
-
-### 결정
-
-* 이미지는 장식 요소이므로 alt="" 처리.
-* 클릭 이벤트는 버튼에만 적용 (이미지 클릭 동작이 필요하면 JS로 보조 처리).
-
----
-
-## form 태그 사용 여부
-
-* Input 영역을 form으로 묶을지 고민.
-* 하지만 시안 상 submit 동작은 JS 로직에서만 처리할 것이며, 실제 form 제출이 필요하지 않음.
-* 문장 중간에 input이 자연스럽게 포함되어 있어 form 구조가 오히려 복잡해짐.
-* **form 미사용** 결정.
-
----
-
-## Footer 구조 설계
-
-### 이슈
-
-* 저작권 문구를 일반 p로 넣어도 되는지?
-* 보험약관처럼 작은 글씨이므로 별도 클래스를 부여하는 것이 실무적으로 적절.
-
-### 결정
-
-```html
-<footer>
-    <div class="footer__branding">
-        <img ...>
-        <p class="footer__notice">...</p>
+    ```
+    <div class="input__enter">
+        <div class="input__goal-row">...</div>
+        <div class="input__time-row">...</div>
     </div>
-</footer>
-```
+    ```
 
----
+    ---
 
-## 엔티티 코드 관련
+    ## Output 영역 구조 설계
 
-### 정리한 내용
+    ### 이슈
 
-* 소괄호 ( ) 는 엔티티 코드 불필요. 그대로 써도 됨.
-* 필요할 때는 `&#40;` `&#41;`
-* ※ 기호 → `&#8251;`
-* 마지막 output 문장에 불필요한 `:&#41;` 괄호 엔티티 제거 필요.
+    Output도 label을 사용해야 하나? → NO. label은 input 설명용.
+    결과 출력은 `p` + `span` 조합이 시멘틱하게 맞음.
 
----
+    ### 결정
 
-## 최종 구축한 HTML 구조 개요
+    * 결과 문장 구조를 다음과 같이 명확하게 설계:
 
-(요약)
+    * `output__goal-text`
+    * `output__goal-value`
+    * `output__days-text`
+    * `output__days-value`
 
-* Hero
-* Input (`input__enter`, `input__goal-row`, `input__time-row`, `section--input__submit`)
-* Output (`output__goal-text`, `output__goal-value`, `output__days-text`, `output__days-value`, `output__actions`)
-* Footer (`footer__branding`, `footer__notice`)
+    ### 버튼 그룹
 
-모든 구조가 시안과 BEM 규칙에 맞도록 확정됨.
+    * "훈련하러 가기", "공유하기" 두 버튼을 하나의 action group으로 묶음.
+    * 그룹 네이밍: `output__actions`
+    * 개별 버튼: `output__action-go`, `output__action-share` 로 확정.
 
-끝.
----
+    ---
+
+    ## 버튼 + 이미지 배치 이슈
+
+    ### 고민
+
+    버튼 옆의 click 이미지가 button 안에 있어야 하나?
+    → 시안 기준으로 버튼 *바깥에* 위치하는 것이 맞으므로 구조 유지.
+
+    ### 결정
+
+    * 이미지는 장식 요소이므로 alt="" 처리.
+    * 클릭 이벤트는 버튼에만 적용 (이미지 클릭 동작이 필요하면 JS로 보조 처리).
+
+    ---
+
+    ## form 태그 사용 여부
+
+    * Input 영역을 form으로 묶을지 고민.
+    * 하지만 시안 상 submit 동작은 JS 로직에서만 처리할 것이며, 실제 form 제출이 필요하지 않음.
+    * 문장 중간에 input이 자연스럽게 포함되어 있어 form 구조가 오히려 복잡해짐.
+    * **form 미사용** 결정.
+
+    ---
+
+    ## Footer 구조 설계
+
+    ### 이슈
+
+    * 저작권 문구를 일반 p로 넣어도 되는지?
+    * 보험약관처럼 작은 글씨이므로 별도 클래스를 부여하는 것이 실무적으로 적절.
+
+    ### 결정
+
+    ```html
+    <footer>
+        <div class="footer__branding">
+            <img ...>
+            <p class="footer__notice">...</p>
+        </div>
+    </footer>
+    ```
+
+    ---
+
+    ## 엔티티 코드 관련
+
+    ### 정리한 내용
+
+    * 소괄호 ( ) 는 엔티티 코드 불필요. 그대로 써도 됨.
+    * 필요할 때는 `&#40;` `&#41;`
+    * ※ 기호 → `&#8251;`
+    * 마지막 output 문장에 불필요한 `:&#41;` 괄호 엔티티 제거 필요.
+
+    ---
+
+    ## 최종 구축한 HTML 구조 개요
+
+    (요약)
+
+    * Hero
+    * Input (`input__enter`, `input__goal-row`, `input__time-row`, `section--input__submit`)
+    * Output (`output__goal-text`, `output__goal-value`, `output__days-text`, `output__days-value`, `output__actions`)
+    * Footer (`footer__branding`, `footer__notice`)
+
+    모든 구조가 시안과 BEM 규칙에 맞도록 확정됨.
+
+    끝.
+    ---
+
+</details>
+
+
