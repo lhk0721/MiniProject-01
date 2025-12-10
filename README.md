@@ -1,7 +1,5 @@
 # MiniProject-01
 
----
-
 ## 개요
 
 <details>
@@ -87,8 +85,6 @@
 
 </details>
 
----
-
 ## 작업 로그 
 
 <details>
@@ -107,7 +103,7 @@
 * `<article>`, `<figure>` 사용 여부 검토 → Hero 영역에서는 과한 시멘틱 요소라 판단하여 `div` 유지.
 * Hero 내부 텍스트 계층 구조를 BEM 기반으로 재정리.
 
----
+
 
 ## BEM 네이밍 규칙 정비
 
@@ -121,7 +117,7 @@
 * Input 영역 초기 네이밍(`input__enter__goal`) 구조가 BEM 규칙 위반 → `input__goal-row`, `input__time-row` 형태로 단일 depth Element로 수정.
 * Output 영역 역시 `wrap`, `row` 등 혼재되던 네이밍을 `output__goal-text`, `output__goal-value` 등 얕은 구조로 통일.
 
----
+
 
 ## Input 영역 구조 설계
 
@@ -140,7 +136,7 @@
 </div>
 ```
 
----
+
 
 ## Output 영역 구조 설계
 
@@ -164,7 +160,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 * 그룹 네이밍: `output__actions`
 * 개별 버튼: `output__action-go`, `output__action-share` 로 확정.
 
----
+
 
 ## 버튼 + 이미지 배치 이슈
 
@@ -178,7 +174,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 * 이미지는 장식 요소이므로 alt="" 처리.
 * 클릭 이벤트는 버튼에만 적용 (이미지 클릭 동작이 필요하면 JS로 보조 처리).
 
----
+
 
 ## form 태그 사용 여부
 
@@ -187,7 +183,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 * 문장 중간에 input이 자연스럽게 포함되어 있어 form 구조가 오히려 복잡해짐.
 * **form 미사용** 결정.
 
----
+
 
 ## Footer 구조 설계
 
@@ -207,7 +203,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 </footer>
 ```
 
----
+
 
 ## 엔티티 코드 관련
 
@@ -218,7 +214,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 * ※ 기호 → `&#8251;`
 * 마지막 output 문장에 불필요한 `:&#41;` 괄호 엔티티 제거 필요.
 
----
+
 
 ## 최종 구축한 HTML 구조 개요
 
@@ -233,7 +229,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 
 끝.
 
----
+
 
 </details>
 
