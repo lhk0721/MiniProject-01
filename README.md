@@ -91,12 +91,12 @@
 
 ---
 
-# 작업 로그 
+## 작업 로그 
 
 <details>
 <summary>(2025.12.10)</summary>
 
-## HTML 구조 설계 및 시멘틱 마크업 개선
+# HTML 구조 설계 및 시멘틱 마크업 개선
 
 * `header / main / footer` 기본 레이아웃 구성.
 * Hero, Input, Output 세 영역을 시안 기준으로 `section`으로 분리.
