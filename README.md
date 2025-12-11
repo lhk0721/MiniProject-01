@@ -59,29 +59,29 @@
 <summary>styles</summary>
 
 # styles
-    - reset.css
-        브라우저 기본 스타일 제거.
+- reset.css
+브라우저 기본 스타일 제거.
 
-    - base.css
-        프로젝트의 가장 기초가 되는 전역 스타일.
-        타이포그래피 설정(font-family, font-size, line-height)
-        <!-- color palette(전역 색상 변수) -->
-        <!-- spacing scale(마진·패딩 단위 정의) -->
-        <!-- 전역 box-sizing, body 기본 스타일 -->
-        <!-- 링크/버튼 기본 리셋 수준의 전역 룰 -->
-        
+- base.css
+프로젝트의 가장 기초가 되는 전역 스타일.
+타이포그래피 설정(font-family, font-size, line-height)
+<!-- color palette(전역 색상 변수) -->
+<!-- spacing scale(마진·패딩 단위 정의) -->
+<!-- 전역 box-sizing, body 기본 스타일 -->
+<!-- 링크/버튼 기본 리셋 수준의 전역 룰 -->
 
-    - layout.css
-        페이지 골격(그리드, flex 레이아웃, 레이아웃 wrapper)을 관리.
 
-    - components.css
-        버튼, 카드, 모달 등 반복되는 UI 컴포넌트 스타일.
+- layout.css
+페이지 골격(그리드, flex 레이아웃, 레이아웃 wrapper)을 관리.
 
-    - main.css
-        페이지 단위 스타일을 의미한다.
-        예: index.html에만 필요한 스타일
-        특정 섹션 배치를 위한 스타일
-        특정 페이지에서만 쓰는 테마나 구조
+- components.css
+버튼, 카드, 모달 등 반복되는 UI 컴포넌트 스타일.
+
+- main.css
+페이지 단위 스타일을 의미한다.
+예: index.html에만 필요한 스타일
+특정 섹션 배치를 위한 스타일
+특정 페이지에서만 쓰는 테마나 구조
 
 </details>
 

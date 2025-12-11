@@ -1,0 +1,37 @@
+.page-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer"
+    ;
+    gap: 32px;
+    /* max-width: 420px; */
+    margin: auto;
+    padding: 0 32px;
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+}
+
+.hero__title{
+    position: relative;
+}
+
+.hero__title img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
