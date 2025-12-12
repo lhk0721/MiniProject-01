@@ -1,3 +1,8 @@
+body{
+    width: auto;
+    text-align: center;
+}
+
 .page-wrapper{
     display: grid;
     grid-template-columns: 1fr;
@@ -9,7 +14,7 @@
     ;
     gap: 32px;
     /* max-width: 420px; */
-    margin: auto;
+    margin: 0 auto;
     padding: 0 32px;
 }
 
@@ -25,8 +30,14 @@ footer{
     grid-area: footer;
 }
 
+.hero{
+    margin-bottom: 102px;
+}
+
 .hero__title{
     position: relative;
+    height: 265px;
+    margin-bottom: 56px;
 }
 
 .hero__title img{
@@ -34,4 +45,24 @@ footer{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.hero__title img:nth-child(1){
+    width: 564px;
+    height: 112px;
+    z-index: 10;
+}
+.hero__title img:nth-child(2){
+    width: 260px;
+    height: 260px;
+    z-index: 1;
+}
+
+.hero__catchphrase-text{
+    margin-bottom: 76px;
+}
+.hero__description{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
 }
