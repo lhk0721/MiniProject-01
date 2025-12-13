@@ -1,6 +1,6 @@
 body{
     width: auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .page-wrapper{
@@ -12,10 +12,10 @@ body{
         "main"
         "footer"
     ;
-    gap: 32px;
+    gap: 3.2rem;
     /* max-width: 420px; */
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 3.2rem;
 }
 
 header {
@@ -36,8 +36,8 @@ footer{
 
 .hero__title{
     position: relative;
-    height: 265px;
-    margin-bottom: 56px;
+    height: 26.5rem;
+    margin-bottom: 5.6rem;
 }
 
 .hero__title img{
@@ -47,21 +47,21 @@ footer{
     transform: translate(-50%,-50%);
 }
 .hero__title img:nth-child(1){
-    width: 564px;
-    height: 112px;
+    width: 56.4rem;
+    height: 11.2rem;
     z-index: 10;
 }
 .hero__title img:nth-child(2){
-    width: 260px;
-    height: 260px;
+    width: 26rem;
+    height: 26rem;
     z-index: 1;
 }
 
 .hero__catchphrase-text{
-    margin-bottom: 76px;
+    margin-bottom: 7.6rem;
 }
 .hero__description{
-    margin-bottom: 102px;
+    margin-bottom: 10.2rem;
     display: flex;
     justify-content: center;
     position: relative;
@@ -69,18 +69,27 @@ footer{
 
 .hero__description > img{
     position: absolute;
+    top: 1.6rem;
+}
+
+.section--input input{
+    width: 22.8rem;
+    height: 5.7rem;
+
+    border: none;
+    border-radius: 0.7rem;
 }
 
 .btn-submit{
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
 }
 
 .input__goal-row {
-    margin-bottom: 28px;
+    margin-bottom: 2.8rem;
 }
 
 .input__time-row{
-    margin-bottom: 116px;
+    margin-bottom: 11.6rem;
 }
 
 .section--input__submit{
@@ -89,30 +98,84 @@ footer{
 
 .section--input__submit .img-click{
     position: absolute;
-    width: 64px;
-    height: 72px;
+    width: 6.4rem;
+    height: 7.2rem;
+    top: 1.4rem;
+}
+
+.section--output{
+    margin-bottom: 1.6rem;
 }
 
 .output__days-text{
-    margin-bottom: 128px;
+    margin-bottom: 12.8rem;
+}
+
+.modal, 
+.modal__overlay{
+    display: none;
+}
+
+.modal__overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 999;
 }
 
 .modal {
-    width: 800px;
-    height: 800px;
+    width: 80rem;
+    height: 80rem;
     border: none;
-    border-radius: 20px;
+    border-radius: 2rem;
 
-    padding: 82px 146px;
+    padding: 8.2rem 14.6rem;
+
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 }
 
 
 .modal p{
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 }
 
 .modal img{
-    width: 438px;
-    height: 342px;
-    margin-bottom: 40px;
+    width: 43.8rem;
+    height: 34.2rem;
+    margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 480px){
+    .hero__title img:nth-child(1){
+        width: 27.8rem;
+        height: 5.4rem;
+        z-index: 10;
+    }
+    .hero__title img:nth-child(2){
+        width: 12rem;
+        height: 12rem;
+        z-index: 1;
+    }
+    .hero__description > img{
+        width: 33rem;
+        height: 2rem;
+    }
+
+    .section--input input{
+        width: 15.6rem;
+        height: 3.8rem;
+
+        border: none;
+        border-radius: 0.7rem;
+    }
+    
+    
 }
