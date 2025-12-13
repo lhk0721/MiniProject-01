@@ -115,3 +115,22 @@ button{
     font-size: 12pxs;
     line-height: 100%;
 }
+
+.modal {
+    background-color: #eeee;
+    font-family: 'OTEnjoystoriesBA';
+    text-align: center;
+    color: #5B2386;
+}
+
+.modal p{
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 100%;
+}
+
+.modal span{
+    font-weight: bold;
+    font-size: 96px;
+    line-height: 100%;
+}
