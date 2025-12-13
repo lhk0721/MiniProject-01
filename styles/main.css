@@ -144,22 +144,26 @@ footer{
     body{
         font-size: 1.4rem;
     }
+
     .hero__catchphrase-text{
         font-size: 2.2rem;
     }
+
     .hero__description-text span{
         font-size: 1.4rem;
     }
-    .input__enter input{
 
+    .input__time-row{
+        flex-direction: column;
     }
-    .br-mobile{
-        display: block;
-    }
+
     .mobile-break{
         display: block;
         height: 0;
     }
-    
 
+    .input__goal-row{
+        margin-bottom: 1.2rem;
+    }
+    
 }

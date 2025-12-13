@@ -94,13 +94,20 @@ footer{
 
 .section--input__submit{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 77rem;
+    
 }
 
 .section--input__submit .img-click{
+    
     position: absolute;
     width: 6.4rem;
     height: 7.2rem;
     top: 1.4rem;
+    right: 3rem;
 }
 
 .section--output{
@@ -176,6 +183,17 @@ footer{
         border: none;
         border-radius: 0.7rem;
     }
-    
+    .btn-submit{
+        width: 24rem;
+        height: 7.2rem;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .section--input__submit .img-click{
+        position: absolute;
+        right: -20px;
+    }
     
 }
