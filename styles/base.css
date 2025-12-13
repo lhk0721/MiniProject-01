@@ -46,13 +46,3 @@
     overflow: hidden;
     white-space: nowrap;
 }
-
-.br-mobile {
-    display: none;
-}
-
-@media screen and (max-width: 480px){
-    .br-mobile {
-        display: block;
-    }
-}
