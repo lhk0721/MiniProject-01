@@ -31,7 +31,7 @@ footer{
 }
 
 .hero{
-    margin-bottom: 102px;
+    /* margin-bottom: 102px; */
 }
 
 .hero__title{
@@ -61,8 +61,38 @@ footer{
     margin-bottom: 76px;
 }
 .hero__description{
+    margin-bottom: 102px;
     display: flex;
     justify-content: center;
     position: relative;
-    
+}
+
+.hero__description > img{
+    position: absolute;
+}
+
+.btn-submit{
+    margin-bottom: 100px;
+}
+
+.input__goal-row {
+    margin-bottom: 28px;
+}
+
+.input__time-row{
+    margin-bottom: 116px;
+}
+
+.section--input__submit{
+    position: relative;
+}
+
+.section--input__submit .img-click{
+    position: absolute;
+    width: 64px;
+    height: 72px;
+}
+
+.output__days-text{
+    margin-bottom: 128px;
 }

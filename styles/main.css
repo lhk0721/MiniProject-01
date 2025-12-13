@@ -1,4 +1,117 @@
 body{
-    /* background-color: #5B2386; */
+    background-color: #5B2386;
+    font-family: 'GmarketSansMedium';
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0%;
+    line-height: 1.5;
 }
 
+button{
+    height: 64px;
+    border-radius: 12px;
+    background-color: #F5DF4D;
+    padding: 20px 50px;
+    
+    font-family: 'GmarketSansBold';
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
+    color: #5B2386;
+}
+
+
+.hero__catchphrase-text{
+    font-family: 'OTEnjoystoriesBA';
+    font-weight: bold;
+    font-size: 36px;
+    color: #F5DF4D;
+}
+
+.hero__description-text span{
+    font-family: 'GmarketSansBold';
+    font-weight: 700;
+    font-size: 24px;
+}
+
+
+
+.section--input input{
+    width: 228px;
+    height: 57px;
+
+    border: none;
+    border-radius: 7px;
+
+    text-align: center;
+    font-family: 'GmarketSansMedium';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+.input__enter label{
+    display: inline-flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.btn-submit{
+    width: 567px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: #F5DF4D;
+    padding: 20px 50px;
+    
+    font-family: 'GmarketSansBold';
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
+    color: #5B2386;
+}
+
+.section--output{
+    margin-bottom: 160px;
+}
+
+.section--output span{
+    font-family: 'GmarketSansBold';
+    font-weight: 700;
+    font-size: 72px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
+.section--output span{
+    display: inline-block;
+    /* align-items: center;
+    gap: 1em; */
+    margin: 0 1rem;
+}
+
+.output__actions{
+    display: inline-flex;
+    gap: 12px;
+}
+
+.output__action-share{
+    background-color: #eeee;
+}
+
+.footer__branding img{
+    margin-bottom: 20px;
+}
+
+.footer__branding .footer__notice{
+    font-family: 'Noto Sans KR';
+    font-weight: 400px;
+    font-size: 12pxs;
+    line-height: 100%;
+}

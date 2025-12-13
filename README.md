@@ -88,7 +88,7 @@
 ## 작업 로그 
 
 <details>
-<summary>(2025.12.10)</summary>
+<summary>2025.12.10</summary>
 
 # HTML 구조 설계 및 시멘틱 마크업 개선
 
@@ -229,8 +229,297 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 
 끝.
 
+</details>
+
+<details>
+<summary>2025.12.11</summary>
+
+---
+
+프로젝트 구조 설계 및 마크업 정비 단계
+
+페이지 전체 구조를 page-wrapper 기준으로 정리
+header / main / footer를 grid 레이아웃으로 분리
+main 내부를 hero / input / output 섹션으로 명확히 구획
+
+```html
+<div class="page-wrapper">
+    <header></header>
+    <main>
+        <h1 class="visually-hidden">1만 시간의 법칙</h1>
+
+        <section class="hero"></section>
+        <section class="section--input"></section>
+        <section class="section--output"></section>
+    </main>
+    <footer></footer>
+</div>
+```
+
+```css
+.page-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    gap: 32px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+header { grid-area: header; }
+main   { grid-area: main; }
+footer { grid-area: footer; }
+```
+
+접근성과 SEO 고려
+시각적 타이틀과 별도로 visually-hidden h1 추가
+메인 콘텐츠 최상단에 배치하여 문서 구조 명확화
+
+```html
+<h1 class="visually-hidden">1만 시간의 법칙</h1>
+```
+
+```css
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+}
+```
+
+Hero 영역 구조 확정
+hero__title / hero__catchphrase / hero__description 구성
+BEM 네이밍 규칙에 따라 클래스 체계 정리
+
+```html
+<section class="hero">
+    <div class="hero__title">
+        <img src="./img/title.png" alt="일만 시간의 법칙 타이틀">
+        <img src="./img/clock.png" alt="">
+    </div>
+
+    <div class="hero__catchphrase">
+        <h2 class="hero__catchphrase-text">
+            “연습은 어제의 당신보다 당신을 더 낫게 만든다.”
+        </h2>
+
+        <div class="hero__description">
+            <img src="./img/quotes.png" alt="">
+            <p class="hero__description-text">
+                <span>1만 시간의 법칙</span>은<br>
+                어떤 분야의 전문가가 되기 위해서는<br>
+                최소한 1만 시간의 훈련이 필요하다는 법칙이다.
+            </p>
+        </div>
+    </div>
+</section>
+```
+
+Hero 타이틀 레이아웃 구현
+부모 요소에 position: relative 적용
+title 이미지와 clock 이미지를 absolute로 겹치게 배치
+중앙 정렬 및 z-index 조정으로 시안과 동일한 레이어 구성
+
+```css
+.hero__title{
+    position: relative;
+    height: 265px;
+    margin-bottom: 56px;
+}
+
+.hero__title img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero__title img:nth-child(1){
+    width: 564px;
+    z-index: 10;
+}
+
+.hero__title img:nth-child(2){
+    width: 260px;
+    z-index: 1;
+}
+```
+
+CSS 아키텍처 분리
+reset / base / layout / main 파일 역할 분리
+
+```html
+<link rel="stylesheet" href="./styles/reset.css">
+<link rel="stylesheet" href="./styles/base.css">
+<link rel="stylesheet" href="./styles/layout.css">
+<link rel="stylesheet" href="./styles/main.css">
+```
 
 
 </details>
+
+<details>
+<summary>2025.12.12</summary>
+
+---
+
+Hero 설명 영역 정렬 개선
+quotes 이미지와 설명 텍스트의 시각적 겹침 처리
+부모 기준 absolute 배치로 중앙 정렬 기준 통일
+
+```css
+.hero__description{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hero__description > img{
+    position: absolute;
+}
+```
+
+Input 영역 UX 및 정렬 조정
+label 내부 텍스트와 input을 inline-flex로 배치
+align-items로 수직 정렬, gap으로 간격 제어
+
+```html
+<label>
+    나는
+    <input type="text" name="goal">
+    전문가가 될 것이다.
+</label>
+```
+
+```css
+.input__enter label{
+    display: inline-flex;
+    align-items: center;
+    gap: 1em;
+}
+```
+
+버튼과 클릭 유도 이미지 정렬
+section--input__submit을 기준 컨테이너로 설정
+click 이미지를 absolute로 배치
+
+```html
+<div class="section--input__submit">
+    <button class="btn-submit">
+        나는 며칠 동안 훈련을 해야 1만 시간이 될까?
+    </button>
+    <img class="img-click" src="./img/click.png" alt="">
+</div>
+```
+
+```css
+.section--input__submit{
+    position: relative;
+}
+
+.section--input__submit .img-click{
+    position: absolute;
+    width: 64px;
+    height: 72px;
+}
+```
+
+타이포그래피 기준 정리
+font-weight 숫자 스케일 사용
+line-height 배수 단위 적용
+문단 간 간격은 margin 기준 관리
+
+```css
+body{
+    font-family: 'GmarketSansMedium';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+}
+```
+
+
+</details>
+
+<details>
+<summary>2025.12.13</summary>
+
+---
+
+스타일 마감 및 시안 반영
+
+전역 스타일 확정
+배경색, 기본 폰트, 자간·행간 고정
+
+```css
+body{
+    background-color: #5B2386;
+    color: #FFFFFF;
+    letter-spacing: 0%;
+}
+```
+
+버튼 컴포넌트 마감
+높이, 패딩, 라운드 값 및 타이포 스펙 고정
+
+```css
+.btn-submit{
+    width: 567px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: #F5DF4D;
+    padding: 20px 50px;
+    font-family: 'GmarketSansBold';
+    font-size: 24px;
+    color: #5B2386;
+}
+```
+
+Output 섹션 정리
+강조 숫자 span을 inline-block으로 처리
+액션 버튼 영역을 inline-flex + gap으로 배치
+
+```css
+.section--output span{
+    display: inline-block;
+    font-size: 72px;
+    margin: 0 1rem;
+}
+
+.output__actions{
+    display: inline-flex;
+    gap: 12px;
+}
+```
+
+Footer 마감
+Noto Sans KR 적용
+폰트 속성 오탈자 점검 대상 인지
+
+```css
+.footer__branding .footer__notice{
+    font-family: 'Noto Sans KR';
+    font-weight: 400px;
+    font-size: 12pxs;
+}
+```
+
+퍼블리싱 1차 완성 상태
+레이아웃, 정렬, 타이포 이슈 해소
+시안 기준 퍼블리싱 1차 완료
+README 및 커밋 로그 정리 가능한 안정 단계 진입
+
+---
+
+</details>
+
 
 
