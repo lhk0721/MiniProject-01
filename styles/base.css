@@ -7,18 +7,18 @@
 }
 
 @font-face {
-    font-family: "GmarketSansBold";
+    font-family: "GmarketSans";
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/n   oonfonts_2001@1.1/GmarketSansBold.woff")
     format("woff");
-    font-weight: normal;
+    font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "GmarketSansMedium";
+    font-family: "GmarketSans";
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
     format("woff");
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -35,15 +35,14 @@
 }
 
 :root{
-    --fontt-title:'OTEnjoystoriesBA', sans-serif;
-    --font-body_bold:'GmarketSansBold', sans-serif;
-    --font-body_medium:'GmarketSansMedium', sans-serif;
+    --font-title:'OTEnjoystoriesBA', sans-serif;
+    --font-body:'GmarketSans', sans-serif;
     --font-footer:'Noto Sans KR',sans-serif;
 
     --fw-bold: 700;
     --fw-medium: 400;
 
-    --fs_xs: 0.9rem;
+    --fs-xs: 0.9rem;
     --fs-sm: 1.2rem;
     --fs-md: 1.4rem;
     --fs-lg: 2.2rem;

@@ -26,9 +26,11 @@ main{
     
     /* temp */
     /* height: 18.6rem; */
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 
-    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-img{
@@ -56,11 +58,6 @@ main{
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 1;
-}
-
-.section-hero p{
-    font-family: "OTEnjoystoriesBA";
-    color: #F5DF4D;
 }
 
 

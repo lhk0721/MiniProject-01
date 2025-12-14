@@ -1,0 +1,6 @@
+.section-hero p{
+    font-family: var(--font-title);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-lg);
+    color: var(--color-text-accent);
+}
