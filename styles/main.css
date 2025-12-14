@@ -1,4 +1,4 @@
-.section-hero p{
+.hero__catchphrase{
     font-family: var(--font-title);
     font-weight: var(--fw-medium);
     font-size: var(--fs-lg);
