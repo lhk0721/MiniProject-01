@@ -5,6 +5,9 @@ body{
 .page-wrapper{
     width: 36rem;
     margin: 3.5rem auto;
+    display: flex;
+    flex-direction: column;
+    
 
     background-color: lightblue;
     
@@ -12,8 +15,14 @@ body{
     border: solid 1px black;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
 .section-hero{
-    margin: 3.6rem auto 7rem;
+    margin-top: 3.6rem;
     
     
     /* temp */
@@ -21,8 +30,19 @@ body{
     background-color: lightcoral;
 }
 
+.hero__title{
+    width: 28rem;
+    height: 5.4rem;
+}
+
+.hero__clock{
+    width: 11rem;
+    height: 11rem;
+}
+
+
 .section-description{
-    margin-bottom: 6rem;
+    
 
     /* temp */
     height: 6.8rem;
@@ -30,7 +50,7 @@ body{
 }
 
 .section-calculator{
-    margin-bottom: 6rem;
+    
 
     /* temp */
     height: 35rem;
@@ -38,7 +58,7 @@ body{
 }
 
 .section-action {
-    margin-bottom: 7rem;
+    
 
     /* temp */
     height: 4.6rem;
