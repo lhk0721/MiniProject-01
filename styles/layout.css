@@ -24,20 +24,43 @@ main{
 .section-hero{
     margin-top: 3.6rem;
     
-    
     /* temp */
-    height: 18.6rem;
+    /* height: 18.6rem; */
     background-color: lightcoral;
+
+    /* position: relative; */
 }
 
-.hero__title{
+.hero-img{
+    position: relative;
+    height: 13rem;
+}
+
+.hero-img__title{
     width: 28rem;
     height: 5.4rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
 }
 
-.hero__clock{
+.hero-img__clock{
     width: 11rem;
     height: 11rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+.section-hero p{
+    font-family: "OTEnjoystoriesBA";
+    color: #F5DF4D;
 }
 
 
