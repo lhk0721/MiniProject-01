@@ -70,3 +70,6 @@
     overflow: hidden;
     white-space: nowrap;
 }
+.br-mobile{
+    display: none;
+}

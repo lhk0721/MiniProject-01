@@ -7,12 +7,6 @@ body{
     margin: 3.5rem auto;
     display: flex;
     flex-direction: column;
-    
-
-    
-    /* temp */
-    /* background-color: lightblue; */
-    border: solid 1px black;
 }
 
 main{
@@ -79,15 +73,20 @@ main{
     margin-bottom: 5rem;
 }
 
-.mobile-row1,
-.mobile-row2,
-.mobile-row3{
+.calculator__label{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    
+    column-gap: 0.8rem;
+    row-gap: 1.2rem;
+}
 
+.break-mobile{
+    flex-basis: 100%;
+    height: 0;
+    margin: 0;
 }
 
 
@@ -162,4 +161,10 @@ main{
 }
 footer{
     margin-bottom: 3.5rem;
+}
+
+.line{
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
 }
