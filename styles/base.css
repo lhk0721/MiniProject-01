@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "GmarketSans";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/n   oonfonts_2001@1.1/GmarketSansBold.woff")
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
     format("woff");
     font-weight: 700;
     font-style: normal;
@@ -53,6 +53,9 @@
     --color-text-primary: #eee;
     --color-text-accent: #F5DF4D;
     --color-text-inverse: #5B2386;
+
+    --color-btn-primary:#F5DF4D;
+    --color-btn-secondary:#eee;
 }
 
 .visually-hidden {

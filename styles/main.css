@@ -1,6 +1,59 @@
+body{
+    line-height: 1.6;
+    text-align: center;
+}
+
 .hero__catchphrase{
     font-family: var(--font-title);
     font-weight: var(--fw-medium);
     font-size: var(--fs-lg);
     color: var(--color-text-accent);
+}
+
+.description__text{
+    font-family: var(--font-body);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-md);
+    color: var(--color-text-primary);
+}
+
+.description__text span{
+    font-weight: var(--fw-bold);
+}
+
+.calculator__input{
+    font-family: var(--font-body);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-md);
+    color: var(--color-text-primary);
+}
+
+.btn{
+    font-family: var(--font-body);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-md);
+    color: var(--color-text-inverse);
+}
+
+.calculator__output{
+    font-family: var(--font-body);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-sm);
+    color: var(--color-text-primary);
+    
+}
+
+.calculator__result-goal,
+.calculator__result-days{
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-xl);
+    margin: 0 1.2rem;
+    line-height: 1; 
+}
+
+footer{
+    font-family: var(--font-footer);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-xs);
+    color: var(--color-text-primary);
 }

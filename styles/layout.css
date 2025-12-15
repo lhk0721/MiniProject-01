@@ -9,9 +9,9 @@ body{
     flex-direction: column;
     
 
-    background-color: lightblue;
     
     /* temp */
+    /* background-color: lightblue; */
     border: solid 1px black;
 }
 
@@ -23,10 +23,6 @@ main{
 
 .hero{
     margin-top: 3.6rem;
-    
-    /* temp */
-    /* height: 18.6rem; */
-    /* background-color: lightcoral; */
 
     display: flex;
     flex-direction: column;
@@ -60,27 +56,110 @@ main{
     z-index: 1;
 }
 
-
-.description{
-    
-
-    /* temp */
-    height: 6.8rem;
-    background-color: lightcoral;
+.description__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 .calculator{
-    
-
-    /* temp */
-    height: 35rem;
-    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.action {
-    
+.calculator__input{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 
-    /* temp */
-    height: 4.6rem;
-    background-color: lightcoral;
+    margin-bottom: 5rem;
+}
+
+.mobile-row1,
+.mobile-row2,
+.mobile-row3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+}
+
+
+.calculator__input input{
+    width: 15.6rem;
+    height: 3.8rem;
+    border-radius: 0.8rem;
+    text-align: center;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 1.6rem 2.4rem;
+    border: none;
+    border-radius: 1.2rem;
+}
+
+.btn--yellow{
+    background-color: var(--color-btn-primary);
+}
+
+.calculator__submit .btn{
+    width: 24rem;
+}
+
+.calculator__submit{
+    position: relative;
+    margin-bottom: 5rem;
+}
+
+.calculator__submit img{
+    width: 4.3rem;
+    height: 4.8rem;
+
+    position: absolute;
+    top: 4.5rem;
+    left: 24rem;
+}
+
+.calculator__output{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.calculator__output .row1,
+.calculator__output .row2{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+
+    margin-bottom: 7rem;
+}
+
+.btn--white{
+    background-color: var(--color-btn-secondary);
+}
+
+
+.footer__logo{
+    width: 12.5rem;
+    height: 2.8rem;
+}
+footer{
+    margin-bottom: 3.5rem;
 }

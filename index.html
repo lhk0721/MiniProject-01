@@ -36,7 +36,7 @@
                 <h2 class="visually-hidden">설명 섹션</h2>
                 <div class="description__content">
                     <img src="./img/“.png" alt="">
-                    <p>
+                    <p class="description__text">
                         <span>1만 시간의 법칙</span>은 <br>
                         어떤 분야의 전문가가 되기 위해서는<br> 
                         최소한 1만 시간의 훈련이 필요하다는 법칙이다.
@@ -47,28 +47,39 @@
             <section class="calculator">
                 <h2 class="visually-hidden">계산 섹션</h2>
                 <div class="calculator__input">
-                        나는
-                        <input class="calculator__input-goal" type="text" placeholder="예&#41;프로그래밍" aria-label="goal">
-                        전문가가 될 것이다. <br>
-                        그래서 앞으로 매일 하루에 <br class="br-mobile">
-                        <input class="calculator__input-time" type="number" placeholder="예&#41;5시간" aria-label="time">
-                        시간씩 훈련할 것이다.
+                        <div class="mobile-row1">
+                            <span>나는</span>
+                            <input class="calculator__input-goal" type="text" placeholder="예&#41;프로그래밍" aria-label="goal">
+                            <span>전문가가 될 것이다.</span>
+                        </div> 
+                        <div class="mobile-row2">
+                            <span>그래서 앞으로 매일 하루에</span>
+                        </div>
+                        <!-- <br class="br-mobile"> -->
+                        <div class="mobile-row3">
+                            <input class="calculator__input-time" type="number" placeholder="예&#41;5시간" aria-label="time">
+                            <span>시간씩 훈련할 것이다.</span>
+                        </div>
                 </div>
                 <div class="calculator__submit">
                     <button class="btn btn--yellow">
-                        나는 며칠 동안 훈련을 해야 1만 시간이 될까?
+                        나는 며칠 동안 훈련을 해야 <br class="br-mobile"> 1만 시간이 될까?
                     </button>
                     <img src="./img/click.png" alt="">
                 </div>
                 <div class="calculator__output">
-                    <p>
-                        당신은
-                        <span class="calculator__result-goal">프로그래밍</span>
-                        전문가가 되기 위해서<br>
-                        대략
-                        <span class="calculator__result-days">5110</span>
-                        일 이상 훈련하셔야 합니다! :&#41;
-                    </p>
+                    
+                        <div class="row1">
+                            <span>당신은</span>
+                            <span class="calculator__result-goal">프로그래밍</span>
+                            <span>전문가가 되기 위해서</span>
+                        </div>
+                        <div class="row2">
+                            <span>대략</span>
+                            <span class="calculator__result-days">5110</span>
+                            <span>일 이상 훈련하셔야 합니다! :&#41;</span>
+                        </div>
+                    
                 </div>
             </section>
             <section class="action">
@@ -83,7 +94,7 @@
 
         </main>
         <footer>
-            <img src="./img/logo(1).png" alt="weniv 로고">
+            <img class="footer__logo" src="./img/logo(1).png" alt="weniv 로고">
             <p class="copyright">
                 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 위니브에 있습니다. <br> 수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.
             </p>
