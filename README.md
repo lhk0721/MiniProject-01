@@ -519,6 +519,8 @@ README 및 커밋 로그 정리 가능한 안정 단계 진입
 
 ---
 
+</details>
+
 <details>
 <summary>2025.12.13 기준 리빌드</summary>
 
@@ -574,7 +576,7 @@ README 및 커밋 로그 정리 가능한 안정 단계 진입
 
 ---
 
-</details>
+
 
 <details>
 <summary>2025.12.14</summary>
