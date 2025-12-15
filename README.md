@@ -236,7 +236,7 @@ Output도 label을 사용해야 하나? → NO. label은 input 설명용.
 
 ---
 
-프로젝트 구조 설계 및 마크업 정비 단계
+### 프로젝트 구조 설계 및 마크업 정비 단계
 
 페이지 전체 구조를 page-wrapper 기준으로 정리
 header / main / footer를 grid 레이아웃으로 분리
@@ -275,7 +275,7 @@ main   { grid-area: main; }
 footer { grid-area: footer; }
 ```
 
-접근성과 SEO 고려
+### 접근성과 SEO 고려
 시각적 타이틀과 별도로 visually-hidden h1 추가
 메인 콘텐츠 최상단에 배치하여 문서 구조 명확화
 
@@ -295,7 +295,7 @@ footer { grid-area: footer; }
 }
 ```
 
-Hero 영역 구조 확정
+### Hero 영역 구조 확정
 hero__title / hero__catchphrase / hero__description 구성
 BEM 네이밍 규칙에 따라 클래스 체계 정리
 
@@ -323,7 +323,7 @@ BEM 네이밍 규칙에 따라 클래스 체계 정리
 </section>
 ```
 
-Hero 타이틀 레이아웃 구현
+### Hero 타이틀 레이아웃 구현
 부모 요소에 position: relative 적용
 title 이미지와 clock 이미지를 absolute로 겹치게 배치
 중앙 정렬 및 z-index 조정으로 시안과 동일한 레이어 구성
@@ -353,7 +353,7 @@ title 이미지와 clock 이미지를 absolute로 겹치게 배치
 }
 ```
 
-CSS 아키텍처 분리
+### CSS 아키텍처 분리
 reset / base / layout / main 파일 역할 분리
 
 ```html
@@ -371,7 +371,7 @@ reset / base / layout / main 파일 역할 분리
 
 ---
 
-Hero 설명 영역 정렬 개선
+### Hero 설명 영역 정렬 개선
 quotes 이미지와 설명 텍스트의 시각적 겹침 처리
 부모 기준 absolute 배치로 중앙 정렬 기준 통일
 
@@ -387,7 +387,7 @@ quotes 이미지와 설명 텍스트의 시각적 겹침 처리
 }
 ```
 
-Input 영역 UX 및 정렬 조정
+### Input 영역 UX 및 정렬 조정
 label 내부 텍스트와 input을 inline-flex로 배치
 align-items로 수직 정렬, gap으로 간격 제어
 
@@ -407,7 +407,7 @@ align-items로 수직 정렬, gap으로 간격 제어
 }
 ```
 
-버튼과 클릭 유도 이미지 정렬
+### 버튼과 클릭 유도 이미지 정렬
 section--input__submit을 기준 컨테이너로 설정
 click 이미지를 absolute로 배치
 
@@ -432,7 +432,7 @@ click 이미지를 absolute로 배치
 }
 ```
 
-타이포그래피 기준 정리
+### 타이포그래피 기준 정리
 font-weight 숫자 스케일 사용
 line-height 배수 단위 적용
 문단 간 간격은 margin 기준 관리
@@ -454,7 +454,7 @@ body{
 
 ---
 
-스타일 마감 및 시안 반영
+### 스타일 마감 및 시안 반영
 
 전역 스타일 확정
 배경색, 기본 폰트, 자간·행간 고정
@@ -467,7 +467,7 @@ body{
 }
 ```
 
-버튼 컴포넌트 마감
+### 버튼 컴포넌트 마감
 높이, 패딩, 라운드 값 및 타이포 스펙 고정
 
 ```css
@@ -483,7 +483,7 @@ body{
 }
 ```
 
-Output 섹션 정리
+### Output 섹션 정리
 강조 숫자 span을 inline-block으로 처리
 액션 버튼 영역을 inline-flex + gap으로 배치
 
@@ -500,7 +500,7 @@ Output 섹션 정리
 }
 ```
 
-Footer 마감
+### Footer 마감
 Noto Sans KR 적용
 폰트 속성 오탈자 점검 대상 인지
 
@@ -512,7 +512,7 @@ Noto Sans KR 적용
 }
 ```
 
-퍼블리싱 1차 완성 상태
+### 퍼블리싱 1차 완성 상태
 레이아웃, 정렬, 타이포 이슈 해소
 시안 기준 퍼블리싱 1차 완료
 README 및 커밋 로그 정리 가능한 안정 단계 진입
@@ -521,5 +521,113 @@ README 및 커밋 로그 정리 가능한 안정 단계 진입
 
 </details>
 
+<details>
+<summary>2025.12.14</summary>
 
+### HTML 구조 정비 및 입력 영역 재설계
+- 이슈: `span + input`으로 문장을 이어붙여 구조가 불명확했고, br/span/div 혼재로 DOM이 복잡. 접근성·JS 확장·반응형 대응 모두 불리.
+- 판단: 문장은 시각적 문제이고, 구조는 label 단위로 묶는 게 맞음. 줄바꿈은 CSS 책임으로 이관.
+- 조치: 문장 단위를 `label`로 재구성, 불필요한 br/span 제거, 모바일 줄바꿈을 미디어쿼리+display 제어로 전환, aria-label/alt 점검.
+- 결과: 입력 영역 단순화, 접근성·바인딩·반응형 대응 개선 → “보이는 수준”에서 “확장 가능한 구조”로 전환.
+- 코드 전후 (`index.html`):
+  - before:
+    ```html
+    <div class="line">
+      <span>연 { </span><input type="number" /> <span>% }</span>
+    </div>
+    ```
+  - after:
+    ```html
+    <label class="form-row">
+      <span class="form-label">연도 (%)</span>
+      <input type="number" aria-label="연도 입력" />
+    </label>
+    ```
 
+### Hero 섹션 레이아웃 시범 구현
+- 이슈: 타이틀/시계 이미지 겹침 필요. position 기준 혼란, 섹션 height 필요 여부 불명확.
+- 판단: 내부는 `relative + absolute` 조합이 명확. 높이는 콘텐츠 기반 자연 확장이 유지보수에 유리.
+- 조치: `.hero__img`에 `position: relative`, 타이틀/시계 이미지를 absolute+transform 중앙 정렬, z-index로 레이어 명확화. 섹션 height 미지정.
+- 결과: 시안 동일 겹침 구현, 기준 명확 → margin/gap 조정 용이.
+- 코드 전후 (`styles/layout.css`):
+  - before:
+    ```css
+    .hero__img img { position: absolute; }
+    ```
+  - after:
+    ```css
+    .hero__img { position: relative; }
+    .hero__title { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; }
+    .hero__clock { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1; }
+    ```
+
+</details>
+
+<details>
+<summary>2025.12.15</summary>
+
+### page-wrapper 및 레이아웃 확장 대비
+- 이슈: `.page-wrapper`에 `width: 36rem` 고정 → PC/태블릿 확장 시 재작업 필수. 임시 border·주석 스타일 잔존.
+- 판단: 지금 고정폭 제거하지 않으면 전체 구조 재수정 위험. 뼈대를 일찍 확장 가능 상태로.
+- 조치: 고정 `width` 제거, margin/padding 중심 레이아웃 전환, 임시 스타일 정리.
+- 결과: 모바일 퍼스트 유지하면서 PC 확장 여지 확보, 레이아웃 파일을 실사용 상태로 정리.
+- 코드 전후 (`styles/layout.css`):
+  - before:
+    ```css
+    .page-wrapper {
+      width: 36rem;
+      border: 1px dashed red;
+    }
+    ```
+  - after:
+    ```css
+    .page-wrapper {
+      margin: 0 auto;
+      padding: 0 16px;
+      max-width: 1200px;
+    }
+    ```
+
+### CSS 간격(gap/margin) 및 정렬 이슈 정리
+- 이슈: flex 줄바꿈은 되나 `row-gap` 기대값 불일치, 텍스트 baseline 들뜸, input-텍스트 간격을 gap으로 제어할 수 있는지 혼란.
+- 판단: gap은 flex/grid 직계 자식만 적용; inline 혼합 구조에서는 효과 없음. baseline은 폰트 메트릭 영향 가능.
+- 조치: 필요한 영역만 flex 컨테이너로 분리, gap은 레이아웃 단위에서만 사용, 텍스트 정렬은 line-height/padding 조정, input+텍스트 영역은 `label + inline-flex` 유지.
+- 결과: 간격 제어 기준 명확, 원인 파악으로 재발 방지.
+- 코드 전후 (`styles/layout.css`):
+  - before:
+    ```css
+    .form-row { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+    ```
+  - after:
+    ```css
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    @media (min-width: 768px) {
+      .form-row { flex-direction: row; align-items: center; }
+    }
+    ```
+
+### 마크업 신뢰도 개선
+- 이슈: `spans` 오타, 불필요 공백/깨진 태그, 의미 없는 alt 값 등 신뢰도 저하 요소.
+- 판단: 퍼블리싱 단계에서 마크업 신뢰도는 기능만큼 중요; 향후 JS 붙을 때 리스크.
+- 조치: 오타 수정, 불필요 공백/깨진 태그 정리, 의미 없는 이미지는 `alt=""`로 명시.
+- 결과: HTML 유효성·가독성 개선 → “돌아가는 코드”에서 “관리 가능한 코드”로 전환.
+- 코드 전후 (`index.html`):
+  - before:
+    ```html
+    <spans class="desc">...</spans>
+    ```
+  - after:
+    ```html
+    <span class="desc">...</span>
+    ```
+
+### 시점 기준 상태 정리
+- 현재: HTML 섹션/클래스 체계 정비 완료. Hero 스타일 시범 구현, 나머지 섹션은 구조 준비. 모바일 기준 안정화, PC 확장 가능 상태.
+- 의도: HTML 구조를 먼저 확정 후 섹션별 스타일을 독립 완성하는 단계적 접근. 본 시점 커밋은 “구조 확정 커밋”.
+
+</details>
