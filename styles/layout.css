@@ -4,7 +4,7 @@ body{
 
 .page-wrapper{
     max-width: 36rem;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     margin: 3.5rem auto;
     display: flex;
     flex-direction: column;
@@ -17,8 +17,6 @@ main{
 }
 
 .hero{
-    margin-top: 3.6rem;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,6 +87,12 @@ main{
     text-align: center;
 }
 
+.calculator__output{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .btn{
     display: flex;
     justify-content: center;
@@ -138,7 +142,6 @@ main{
     display: flex;
     justify-content: center;
     gap: 0.8rem;
-
     margin-bottom: 7rem;
 }
 
@@ -151,6 +154,7 @@ main{
     width: 12.5rem;
     height: 2.8rem;
 }
+
 footer{
     margin-bottom: 3.5rem;
 }
@@ -158,6 +162,7 @@ footer{
 .line{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.8rem;
 }
 
@@ -222,4 +227,106 @@ footer{
 
 .modal button span:last-child{
     white-space: nowrap;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .br-mobile{
+        display: none;
+    }
+
+    .page-wrapper{
+        max-width: 80rem;
+        padding: none;
+        margin: 8rem auto;
+    }
+
+    main{
+        gap: 16rem;
+    }
+
+    .hero__img{
+        height: 26rem;
+    }
+
+    .hero__title{
+        width: 56.4rem;
+        height: 11.2rem;
+    }
+
+    .hero__clock{
+        width: 26rem;
+        height: 26rem;
+    }
+
+    .calculator__input{
+        gap: 2rem;
+        margin-bottom: 10rem;
+    }
+
+    .calculator__label{
+        column-gap: 2rem;
+        flex-wrap: nowrap;
+    }
+
+    .calculator__input input{
+        width: 22.8rem;
+        height: 5.6rem;
+    }
+
+    .btn{
+        padding: 2rem 5rem;
+    }
+
+    .calculator__submit .btn{
+        width: 56.7rem;
+    }
+
+    .calculator__submit{
+        margin-bottom: 10rem;
+    }
+
+    .calculator__submit img{
+        width: 6.4rem;
+        height: 7.2rem;
+
+        position: absolute;
+        top: 1rem;
+        left: 58rem;
+    }
+
+    .calculator__output{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .action{
+        gap: 1.2rem;
+        margin-bottom: 16rem;
+    }
+
+    .footer__logo{
+        width: 16.8rem;
+        height: 3.6rem;
+    }
+
+    footer{
+        margin-bottom: 8rem;
+    }
+
+    .line{
+        gap: 2rem;
+    }
+
+    .modal {
+        padding: 8.2rem 14.6rem;
+        border-radius: 2rem;
+        gap: 4rem;
+    }
+
+    .modal__img{
+        width: 43.8rem;
+        height: 34.2rem;
+    }
 }

@@ -68,3 +68,56 @@ footer{
     font-weight: var(--fw-bold);
     font-size: var(--fs-xxxl);
 }
+
+
+@media screen and (min-width: 1024px) {
+
+    .hero__catchphrase{
+        font-size: var(--fs-xxl);
+    }
+
+    .description__text{
+        font-size: 1.8rem;
+    }
+
+    .description__text span{
+        font-size: var(--fs-xl);
+    }
+
+    .calculator__input{
+        font-size: var(--fs-xl);
+    }
+
+    .calculator__input-goal,
+    .calculator__input-time{
+        font-size: var(--fs-xl);
+    }
+
+    .btn{
+        font-size: var(--fs-xl);
+    }
+
+    .calculator__output{
+        font-size: var(--fs-xl);
+    }
+
+    .calculator__result-goal,
+    .calculator__result-days{
+        font-size: 7.2rem;
+    }
+
+    footer{
+        font-size: var(--fs-sm);
+    }
+
+    .modal__text{
+        font-size: var(--fs-xxl);
+    }
+
+    .modal__text span{
+        font-size: 9.6rem;
+    }
+
+
+
+}
